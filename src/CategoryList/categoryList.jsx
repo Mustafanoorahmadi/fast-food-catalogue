@@ -1,11 +1,11 @@
 // import { useEffect, useState } from "react";
-// import axios from "../axios";
+// import SearchBar from "../SearchBar/searchBar";
 import Loading from "../Loading/loading";
 import useAxios from "../useAxios";
 
 const CategoryList = ({ filterItems, children }) => {
-  
-  const [categories, , loading] = useAxios({
+
+  const [categories, , loading] =  useAxios({
     url: "/FoodCategory/categories"
   });
 
@@ -13,6 +13,7 @@ const CategoryList = ({ filterItems, children }) => {
     if (loading) {
       return <Loading theme="primary" />;
     }
+
     return (
       <div className="ps-3 w-100 d-flex align-items-center justify-content-between gap-5">
         <ul className="nav">
@@ -49,4 +50,5 @@ const CategoryList = ({ filterItems, children }) => {
     </nav>
   );
 };
+
 export default CategoryList;
