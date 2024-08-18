@@ -18,7 +18,6 @@ function App() {
     setUrl(`/FastFood/list/${categoryId ? "?categoryId=" + categoryId : ""}`);
   };
 
-  // search input
   const searchItems = async (term) => {
     setUrl(`/FastFood/search/${term ? "?term=" + term : ""}`);
   };
@@ -27,22 +26,24 @@ function App() {
     if (loading) {
       return <Loading theme="dark" />;
     }
+
     if (fastFoodItems.length === 0) {
       return (
         <>
-          <div className="alert alert-warning text-center ">
-            برای کلید واژه فوق هیچ آیتمی یافت نشد
+          <div className="alert alert-warning text-center">
+            برای کلیدواژه فوق هیچ آیتمی یافت نشد
           </div>
           <img className="mx-auto mt-5 d-block fade-in-horiz" src={notFound} />
         </>
       );
     }
+
     return <FastFoodList fastFoodItems={fastFoodItems} />;
   };
 
   return (
     <div className="wrapper bg-faded-dark">
-      <Header />
+      <Header></Header>
       <CategoryList filterItems={filterItems}>
         <SearchBar searchItems={searchItems} />
       </CategoryList>
